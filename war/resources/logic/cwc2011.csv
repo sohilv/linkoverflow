@@ -1,0 +1,50 @@
+Match,Date,Time, Team A,Team B,Venue,Match type
+1,19/02/11,14:00:00,India,Bangladesh,Dhaka,Group B
+2,20/02/11,,New Zealand,Kenya,Chennai,Group A
+3,20/02/11,,Sri Lanka,Canada,Hambantota,Group A
+4,21/02/11,,Australia,Zimbabwe,Ahmedabad,Group A
+5,22/02/11,,England,Netherlands,Nagpur,Group B
+6,23/02/11,,Pakistan,Kenya,Hambantota,Group A
+7,24/02/11,,South Africa,West Indies,New Delhi,Group B
+8,25/02/11,,Australia,New Zealand,Nagpur,Group A
+9,25/02/11,,Bangladesh,Ireland,Dhaka,Group B
+10,26/02/11,,Sri Lanka,Pakistan,Colombo,Group A
+11,27/02/11,,India,England,Kolkata,Group B
+12,28/02/11,,West Indies,Netherlands,New Delhi,Group B
+13,28/02/11,,Zimbabwe,Canada,Nagpur,Group A
+14,01/03/11,,Sri Lanka,Kenya,Colombo,Group A
+15,02/03/11,,England,Ireland,Bangalore,Group B
+16,03/03/11,,South Africa,Netherlands,Mohali,Group B
+17,03/03/11,,Pakistan,Canada,Colombo,Group A
+18,04/03/11,,New Zealand,Zimbabwe,Ahmedabad,Group A
+19,04/03/11,,Bangladesh,West Indies,Dhaka,Group B
+20,05/03/11,,Sri Lanka,Australia,Colombo,Group A
+21,06/03/11,,India,Ireland,Bangalore,Group B
+22,06/03/11,,England,South Africa,Chennai,Group B
+23,07/03/11,,Kenya,Canada,New Delhi,Group A
+24,08/03/11,,Pakistan,New Zealand,Pallekelle,Group A
+25,09/03/11,,India,Netherlands,New Delhi,Group B
+26,10/03/11,,Sri Lanka,Zimbabwe,Pallekelle,Group A
+27,11/03/11,,West Indies,Ireland,Mohali,Group B
+28,11/03/11,,Bangladesh,England,Chittagong,Group B
+29,12/03/11,,India,South Africa,Nagpur,Group B
+30,13/03/11,,New Zealand,Canada,Mumbai,Group A
+31,13/03/11,,Australia,Kenya,Bangalore,Group A
+32,14/03/11,,Pakistan,Zimbabwe,Pallekelle,Group A
+33,14/03/11,,Bangladesh,Netherlands,Chittagong,Group B
+34,15/03/11,,South Africa,Ireland,Kolkata,Group B
+35,16/03/11,,Australia,Canada,Bangalore,Group A
+36,17/03/11,,England,West Indies,Chennai,Group B
+37,18/03/11,,Sri Lanka,New Zealand,Mumbai,Group A
+38,18/03/11,,Ireland,Netherlands,Kolkata,Group B
+39,19/03/11,,Australia,Pakistan,Colombo,Group A
+40,19/03/11,,Bangladesh,South Africa,Dhaka,Group B
+41,20/03/11,,Zimbabwe,Kenya,Kolkata,Group A
+42,20/03/11,,India,West Indies,Chennai,Group B
+43,23/03/11,,First Quarterfinal,,Dhaka,
+44,24/03/11,,Second Quarterfinal,,Colombo,
+45,25/03/11,,Third Quarterfinal,,Dhaka,
+46,26/03/11,,Fourth Quarterfinal,,Ahmedabad,
+47,29/03/11,,First Semifinal,,Colombo,
+48,30/03/11,,Second Semifinal,,Mohali,
+49,02/04/11,,FINAL,,Mumbai,

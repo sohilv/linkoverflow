@@ -1,0 +1,95 @@
+
+<html>
+	<head>
+		<title>Welcome!</title>
+		<script type="text/javascript" src="/resources/js/jquery-1.4.4.min.js""></script>		
+		<script type="text/javascript" src="/resources/js/processing.js""></script>
+		
+		<link rel="stylesheet"
+	href="/resources/css/blueprint/plugins/fancy-type/screen.css"
+	type="text/css" media="screen, projection" rel="stylesheet" />
+	
+		<style type="text/css">
+		#overlay{
+			position: fixed;
+			top: 100;
+			left: 100;
+			background: white;
+			width: 900px;			
+			height: 400px;
+			opacity: 0.7;			
+			
+		}
+		
+		</style>
+	</head>
+	<body>
+	<body style="background: black;">
+		<div>
+			<canvas id="sketch"></canvas>
+		</div>
+		<div id="overlay" class="alt">
+		Venue Description Comes Here !!
+		</div>
+		
+		
+		<script type="text/javascript">
+		var p;
+		var schedule;
+			$(document).ready(function(){  
+			  // Pass the script through to a string using jQuery.ajax();
+			  var script = $.ajax({url: "/resources/logic/test20xi.js", async: false}).responseText;
+			    
+			  // Store the Canvas element in an object alias
+			  var canvas = $('canvas#sketch').get(0);
+			  
+			  // Initialize the Processing.js script
+			  p = new Processing(canvas, script);
+			  p.size(jQuery(window).width(), jQuery(window).height());
+			  
+			  $.ajax({ url: "/resources/logic/cwc2011.csv", success: function(response){
+			  	var line=response.split("\n");
+			  	schedule = new Array(line.length);
+			  	
+			  	$.each(line, function(i, value) {        			        			
+        			var val=value.split(",");
+        			schedule[i] = new Array(val.length);        			
+        			$.each(val, function(w, v) {        			        		        			
+        				schedule[i][w]=v;        			        			
+        			});
+        		});        		
+     		  	p.ScheduleData(schedule);
+     		  }
+     		  });
+			  
+			  			  
+			});
+			
+			function filterSchedule( type, value ){
+				
+					var data =new Array(schedule.length);
+					var count=0;
+					
+					for(var i =0;i<schedule.length;i++){
+						for(var j =0;j<schedule[i].length;j++){
+							if(type == 1 && j == 6) {
+								if(schedule[i][j] == value)	{
+								 	data[count] = new Array(schedule[i].length);
+									data[count]=schedule[i];
+									count++;
+								}
+							}			
+						}
+					}
+					
+			}
+			
+			function openOverlay(){
+				$("#overlay").show();
+				
+			}
+			$("#overlay").hide();
+
+		</script>
+	</body>
+</html>

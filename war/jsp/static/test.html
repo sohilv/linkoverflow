@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>JSONP Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            api = {
+                get: function(url) {
+                    var URL = "http://api.stackoverflow.com/1.1/";
+                    $.ajax({
+                        dataType: 'jsonp',
+                        jsonp: 'jsonp',
+                        jsonpCallback: 'onJsonp',
+                        url: URL + url,
+                        success: function(data) {
+					
+					pagesize = data.pagesize;
+				//	setTimeout("callNextPage()",1000);
+
+
+
+                        },
+                        error: function(data) {
+                            console.log('error', url);
+                        }
+                    });
+                },
+                onJsonp: function(data) {
+				pagesize = data.pagesize;
+                   $.each(data.answers, function (key, val) {
+
+				var anchors, hrefValuesList = [ ], i, end;
+
+	       		anchors = $(val.body).find('a');
+
+       		 	// grab all your href values from each anchor element.
+       			end = anchors.length;
+       		 	for (i = 0; i < end; i++) {
+//            			hrefValuesList.push( anchors[ i ].href );
+
+					var str = anchors[ i ].text;  
+					str=  str.replace(/[^\w\s]/gi, '');
+					str=  str.replace(/\bThe\b|\bthe\b|\bof\b|\bOf\b|\band\b|\bAnd\b|\ba\b|\bA\b|\bAn\b|\ban\b|\bLike\b|\blike\b|\bto\b|\bTo\b|\binto\b|\bInto\b|\byour\b|\bYour\b|\bwith\b|\bWith\b|\bOwn\b|\bown\b|\bIn\b|\bn\b|\bto\b|\bTo\b|\bOn\b|\bon\b|\this\b|\This\b|\in\b|\In\b|\how\b|\How\b/g,'');
+					var results = str.match(/("[^"]+"|[^"\s]+)/g);
+
+
+					var idname="term_"+i;
+					var href_row = "<tr>"+
+							   "<td><a href='"+anchors[ i ]+"'>"+anchors[ i ].text+"</a></td>"+
+							   "<td id="+idname+">"+results +"</td>"+
+							   "</tr>";
+					
+
+					$("#result_table").append(href_row);
+        			}
+
+  			 });
+
+                }
+            }		
+
+		
+		var t = setTimeout("callNextPage()",1000);
+
+        });
+
+	var pagesize=1,count=1;
+	var api_key='pg-WJQXUnkOzQARuJGx2ug';
+
+	function callNextPage(){
+		console.log(pagesize)
+		if(pagesize>=count)			
+			api.get('questions/194812/answers?key='+api_key+'&body=true&page='+count++);
+	}
+
+        function onJsonp(data) {
+            api.onJsonp(data);
+        }
+
+
+
+
+    </script>
+</head><body><div id="results"><table id="result_table"></table></div</body></html>
